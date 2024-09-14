@@ -3,19 +3,21 @@
 {% block content %}
     <div class="container my-3">
         <div class="row">
-            
             <div class="col-md-9">
                <h1 class="h3">{{post.title}}</h1>
-           
-              
-              <nav aria-label="breadcrumb">
+               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Library</li>
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none text-danger">{{post.title}}</a></li>
+                  <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-danger">{{post.category.title}} </a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
                 </ol>
               </nav>
-              
-          
+              <hr/>
+
+              <div class='my-3'> 
+                <p>{{post.content}}</p>
+                <p>Last updated: {{post.updated}}</p>
+              </div>
             </div>
 
             <div class="col-md-3">

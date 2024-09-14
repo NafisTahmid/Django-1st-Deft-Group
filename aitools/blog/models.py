@@ -29,6 +29,7 @@ class BlogPost(models.Model):
     ]
     title = models.CharField(max_length = 200)
     slug = models.SlugField(unique = True, blank=True, null = True)
+    featured = models.ImageField(upload_to="blogs/", blank=True, null=True)
     content = models.TextField()
     created = models.DateField(auto_now_add = True)
     updated = models.DateField(auto_now = True)

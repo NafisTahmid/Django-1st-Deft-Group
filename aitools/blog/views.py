@@ -9,7 +9,7 @@ def Home(request):
     return render(request, template_name)
 
 def Blog(request):
-    queryset = BlogPost.objects.filter(status="published")
+    queryset = BlogPost.objects.filter(status="published").order_by('-created')
     per_page = 3
     paginator = Paginator(queryset, per_page)
     page_number = request.GET.get('page')
@@ -26,3 +26,5 @@ def single_post(request, slug):
 
     template_name = 'Blog/single.html'
     return render(request, template_name, context)
+
+
